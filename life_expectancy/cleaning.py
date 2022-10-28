@@ -1,6 +1,10 @@
 # pylint: disable=line-too-long
 """import of libraries"""
+from pathlib import Path
 import pandas as pd
+
+current_filepath = Path(__file__).parent.resolve()
+
 
 def clean_data(country="PT"):
     """function which loads the eu_life_expectancy_raw and then:
@@ -9,8 +13,7 @@ def clean_data(country="PT"):
         -extracts the float values from the value column
         -ensures the year column contains ints
     """
-    eu_life_expectancy_raw = pd.read_csv\
-        ("/home/srpina/faast-foundations-SRPINA/assignments/life_expectancy/data/eu_life_expectancy_raw.tsv",sep='\t')
+    eu_life_expectancy_raw = pd.read_csv(current_filepath / "data" / "eu_life_expectancy_raw.tsv",sep='\t')
 
     eu_life_expectancy_clean = \
         pd.melt(eu_life_expectancy_raw, id_vars=eu_life_expectancy_raw.columns[0], var_name="year")
@@ -32,5 +35,8 @@ def clean_data(country="PT"):
 
     eu_life_expectancy_clean = eu_life_expectancy_clean[eu_life_expectancy_clean["region"]==country]
 
-    eu_life_expectancy_clean\
-        .to_csv("/home/srpina/faast-foundations-SRPINA/assignments/life_expectancy/data/pt_life_expectancy.csv", index=False)
+    eu_life_expectancy_clean.to_csv(current_filepath /"data" / "pt_life_expectancy.csv", index=False)
+
+
+if __name__=="__main__":
+    clean_data()
