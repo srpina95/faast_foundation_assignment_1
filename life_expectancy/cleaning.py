@@ -39,7 +39,7 @@ def clean_data(country="PT"):
     eu_life_expectancy_clean.to_csv(current_filepath /"data" / "pt_life_expectancy.csv", index=False)
 
 
-if __name__=="__main__":
+if __name__=="__main__": # pragma: no cover
     parser = argparse.ArgumentParser(description='main function for your library')
     parser.add_argument('--country',
                         type=str,
