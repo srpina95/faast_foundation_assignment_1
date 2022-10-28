@@ -1,6 +1,7 @@
 # pylint: disable=line-too-long
 """import of libraries"""
 from pathlib import Path
+import argparse
 import pandas as pd
 
 current_filepath = Path(__file__).parent.resolve()
@@ -39,4 +40,12 @@ def clean_data(country="PT"):
 
 
 if __name__=="__main__":
-    clean_data()
+    parser = argparse.ArgumentParser(description='main function for your library')
+    parser.add_argument('--country',
+                        type=str,
+                        required=False,
+                        default="PT",
+                        help='country code on which to focus')
+    args = parser.parse_args()
+
+    clean_data(args.country)
