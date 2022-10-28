@@ -1,5 +1,7 @@
 # FAAST Advance Foundations Assignments
 
+[![Python package](https://github.com/srpina95/faast_foundation_assignment_1/actions/workflows/python-package.yml/badge.svg?branch=main)](https://github.com/srpina95/faast_foundation_assignment_1/actions/workflows/python-package.yml)
+
 ## Introduction
 
 This assignment uses life expectancy in Europe grouped by Country (or other, like group of countries), Age, Sex, and Time. But the data format makes it hard to use. The task consists into cleaning the data and applying the concepts you've learned in the previous modules.
